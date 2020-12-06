@@ -1,0 +1,121 @@
+<ion-header>
+  <div style="background-color: black; align-content: center;"><table style="margin-left: 10px; margin-top: 5px; margin-bottom: 2px;"><tbody><tr><td><span style="margin-top:20px; margin-left: 5px; margin-top: 1px;"><img src="../../assets/tablez.png"  height="35" width="35" /></span></td><td>&nbsp;</td><td><span style="color: white; margin-top: 1px;">Audit Choice Question</span></td></tr></tbody></table> </div>
+</ion-header>
+
+
+<ion-content>
+ 
+  <div><h3 style="color: cornflowerblue;">{{Section_Name}}</h3><br/><br/></div>
+<div>Question {{Question_order}} of {{Total_Question}}<br/><br/></div>
+<div> Points: {{Question_Marks}}&nbsp; &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Score:  {{selectedPOINTS}}<br/><br/></div>
+<div><h4>{{Question_name}} </h4></div>
+    <!-- <div *ngIf="AttemptedQuestionChoiceBySQL.length>0"> -->
+      <div>
+
+        <ion-list>
+          <ion-radio-group value="{{Choice_selected_id}}"   allow-empty-selection = "false"
+          name="radio-group"
+          (ionChange)="radioGroupChange($event)" >
+           
+            <div *ngFor="let element_choice of QuestionChoice">
+            <ion-item>
+              <ion-label>{{element_choice.CHOICE_TEXT}}</ion-label>
+              <!-- <span *ngIf="element_choice.CHOICE_ID===Choice_selected_id">
+              <ion-radio slot="start" color="tertiary" value="{{element_choice.CHOICE_ID}}" checked></ion-radio></span>
+              <span *ngIf="element_choice.CHOICE_ID!=Choice_selected_id">-->
+                <ion-radio slot="start" color="tertiary" value="{{element_choice.CHOICE_ID}}" ></ion-radio> 
+              <!-- </span> -->
+              <!-- (ionFocus)="saveSelected_choice(element_choice.CHOICE_TEXT, element_choice.CHOICE_ID, element_choice.POINTS)" -->
+            </ion-item>
+              </div>
+            <ion-item *ngIf="Choice_selected_id==0">
+               
+            
+                <ion-label>NA</ion-label>
+                <ion-radio slot="start" color="tertiary" value="0"  checked>
+
+                </ion-radio>
+            </ion-item>
+              <ion-item *ngIf="Choice_selected_id!=0">
+                <ion-label>NA</ion-label>
+                <ion-radio slot="start" color="tertiary" value="0">
+
+                </ion-radio>
+              </ion-item>
+              <!-- (ionFocus)="saveSelected_choice('NA', '0', '0')" -->
+         
+
+       </ion-radio-group>
+       </ion-list>
+       <img src="{{image}}">
+</div>
+<!-- </div> -->
+
+ 
+
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-grid>
+    <ion-row>
+     
+      <ion-col>
+        
+          <ion-button  color="medium" (click)="Add_Comment()" expand="full">A Comm</ion-button>
+         
+      
+      </ion-col>
+      <ion-col>
+      
+          <ion-button  color="medium" (click)="View_Comment()" expand="full">V Comm</ion-button>
+        
+      </ion-col>
+      <ion-col>
+       
+          <ion-button  color="medium" (click)="openCam()" expand="full">Img</ion-button>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+     
+      <ion-col>
+       
+          <ion-button  color="medium" (click)="Previous_Question()" expand="full">Previous</ion-button>
+         
+        
+      </ion-col>
+      <ion-col>
+      
+          <ion-button  color="medium" (click)="Review_page()" expand="full">Review</ion-button>
+        
+      </ion-col>
+      <ion-col>
+       
+          <ion-button  color="medium" (click)="Next_Question()" expand="full">Next</ion-button>
+       
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+
+<!-- 
+        <div style="text-align: justify;">
+          <ion-button  color="medium" (click)="Add_Comment()">Add Comm</ion-button>
+        
+          <ion-button  color="medium" (click)="View_Comment()">View Comm</ion-button>
+       
+          <ion-button  color="medium" (click)="openCam()">Photo</ion-button>
+        </div>
+     
+        <div style="text-align: justify;">
+          <ion-button  color="medium" (click)="Previous_Question()">Previous</ion-button>
+        
+          <ion-button  color="medium" (click)="Review_page()">Review</ion-button>
+        
+          <ion-button  color="medium" (click)="Next_Question()">Next</ion-button>
+        </div>
+     -->
+
+</ion-footer>
+

@@ -1,0 +1,54 @@
+<ion-header>
+  <div style="background-color: black; align-content: center;"><table style="margin-left: 10px; margin-top: 5px; margin-bottom: 2px;"><tbody><tr><td><span style="margin-top:20px; margin-left: 5px; margin-top: 1px;"><img src="../../assets/tablez.png"  height="35" width="35" /></span></td><td>&nbsp;</td><td><span style="color: white; margin-top: 1px;">Open Audit</span></td></tr></tbody></table> </div>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let element_Audit of AttemptedOpenAuditByUser"> 
+  
+   <ion-item>
+    <table>
+      <tbody>
+        <tr>
+          <td rowspan="2" width="5%" align="center"> <span *ngIf="element_Audit.MARKS_SCORED===0"><img src="../../assets/red_lock_48.png"  height="40" width="50" /></span> <span *ngIf="element_Audit.MARKS_SCORED>0"><img src="../../assets/refresh1.jpg"  height="40" width="50" /></span> </td>
+          <td width="90%" align="left" style="font-size:x-large;"><b> Audit: {{element_Audit.AUDIT_NAME}}  {{element_Audit.STR_NAME}}</b> </td>
+          
+        </tr>
+        <tr>
+          <td align="left">  &nbsp;&nbsp;Audit Performed On: {{element_Audit.AUDIT_DT | slice:0:10}} Total Marks: {{element_Audit.AUDIT_POINTS}}  Marks Scored: {{element_Audit.MARKS_SCORED}} 
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    <ion-note slot="end" color="tertiary"><ion-button  color="medium" (click)="OenAudit_Page_setting(element_Audit.ATTEMPTED_ID, element_Audit.AUDIT_ID, element_Audit.STR_CODE)"> <ion-checkbox color="dark"></ion-checkbox></ion-button></ion-note>
+   
+    
+              
+             
+  </ion-item>
+</div>
+
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-grid>
+    <ion-row>
+     
+      <ion-col>
+        <div>
+          <ion-button  color="medium"  expand="full" (click)="GoToAuditList()">Open</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button  color="medium"  (click)="DeleteAudit()" expand="full">Delete</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button  color="medium" (click)="GoToDashboard()"  expand="full">EXIT</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+</ion-footer>

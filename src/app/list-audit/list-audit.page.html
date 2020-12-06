@@ -1,0 +1,71 @@
+<ion-header>
+  <div style="background-color: black; align-content: center;"><table style="margin-left: 10px; margin-top: 5px; margin-bottom: 2px;"><tbody><tr><td><span style="margin-top:20px; margin-left: 5px; margin-top: 1px;"><img src="../../assets/tablez.png"  height="35" width="35" /></span></td><td>&nbsp;</td><td><span style="color: white; margin-top: 1px;">List Audit</span></td></tr></tbody></table> </div>
+</ion-header>
+
+<ion-content>
+<div *ngFor="let element_Audit of AttemptedAuditForStore"> 
+  <div (click)="fetchAttemptedSection(element_Audit.ATTEMPTED_ID, element_Audit.AUDIT_ID)">
+  <ion-item>
+    <table><tbody><tr><td><img src="../../assets/tablez.png"  height="25" width="25" /></td><td> Audit: {{element_Audit.AUDIT_NAME}}</td><td></td></tr>
+                
+              
+  </tbody></table>
+</ion-item>
+</div>
+</div>
+  
+      <div *ngFor="let element_section of AttemptedSection"> 
+          <div  (click)="fetchAttemptedQuestionBySQL(element_section.ATTEMPTED_ID, element_section.AUDIT_ID, element_section.SECTION_ID)">
+          <ion-item>
+            <table>
+              <tbody>
+                <tr>
+                  <td rowspan="2" width="5%" align="center"> <span *ngIf="element_section.MARKS_SCORED===0"><img src="../../assets/red_lock_48.png"  height="40" width="50" /></span> <span *ngIf="element_section.MARKS_SCORED>0"><img src="../../assets/refresh1.jpg"  height="40" width="50" /></span> </td>
+                  <td width="95%" align="left" style="font-size:large;"><b>  Section: {{element_section.SECTION_NAME}}&nbsp; &nbsp;&nbsp; &nbsp;{{AuditStore}}</b></td>
+                </tr>
+                <tr>
+                  <td align="left"> {{AuditDate | slice:0:10}}, Total Questions: {{element_section.T_QUESTION_COUNT}}  Question Answered: {{element_section.ATTEMPTQUESTION}} Markes Scored(%): {{element_section.MARKS_SCORED}}
+                   </td>
+                </tr>
+              </tbody>
+            </table>
+         
+              </ion-item>
+          
+          <div *ngIf="show_Question===element_section.SECTION_ID">
+            <div *ngFor="let element_question of AttemptedQuestionBySQL"> 
+              <div style="margin-left: 20px;">
+                
+              <ion-item (click)="GotoQuestionChoice(element_question.ATTEMPTED_ID,element_section.SECTION_ID,  element_question.QUESTION_ID)">
+                <span *ngIf="element_question.QUESTION_STATUS==='Open'"><img src="../../assets/red_lock_48.png"  height="30" width="30" /></span><span *ngIf="element_question.QUESTION_STATUS==='Done'"><img src="../../assets/thick.png"  height="30" width="30" /></span>{{element_question.QUESTION_NAME}}<br/>
+                    Marks : {{element_question.QUESTION_MARKS}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scored: {{element_question.MARKS_SCORED}} <br/> 
+                    
+                    
+                    
+                  </ion-item>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      </div>
+   
+ 
+
+
+
+
+
+  <!-- <div (click)="fetchAttemptedQuestionBySQL(element_section.ATTEMPTED_ID, element_section.AUDIT_ID, element_section.SECTION_ID)">{{element_section.SECTION_NAME}}</div>
+  <div *ngIf()></div> -->
+
+
+  
+
+</ion-content>
+<ion-footer class="ion-no-border">
+ 
+          <ion-button  color="medium" (click)=" GoToDashboard()"  expand="full">EXIT</ion-button>
+      
+    
+  </ion-footer>

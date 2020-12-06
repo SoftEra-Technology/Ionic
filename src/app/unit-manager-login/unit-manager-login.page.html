@@ -1,0 +1,34 @@
+<ion-content>
+  <br/><br/><br/>
+  <div style="margin-left:35px; margin-right: 35px;">
+    <!--<form id="contactForm" [formGroup]="form_user">-->
+       <div style= "border: 1px solid black;">
+         <ion-input type="text"   [(ngModel)]="UMId" placeholder="Unit Manager Id"></ion-input>
+       </div><br/>
+       <div style="border: 1px solid black;">
+         
+         <ion-input  type="Password" [(ngModel)]="PASS" placeholder="Password"></ion-input>
+       </div>
+      <br/>
+ 
+         <!--<div><ion-button  style="background-color: #3986b2;" (click)="sendPostRequest(form_user)">&nbsp;&nbsp;&nbsp;Sign In &nbsp;&nbsp;&nbsp;</ion-button></div>-->
+       
+         <!-- <div><ion-button  style="background-color: #3986b2;" (click)="checkconnection_serve()">&nbsp;&nbsp;&nbsp;check connection&nbsp;&nbsp;&nbsp;</ion-button></div> -->
+         
+ 
+   <!--</form>-->
+ </div>
+   
+      
+     
+      <div style="margin-left: 8px; margin-right: 8px;">Comment</div>
+        <div style="border-style: double; margin-left: 8px; margin-right: 8px;"> 
+      <ion-textarea rows="6" cols="25"   style="background-color: whitesmoke;" [(ngModel)]="comment_um"></ion-textarea>
+    </div>
+  
+    <div style="margin-left: 8px; margin-right: 8px;">
+      <ion-button  color="medium" (click)="close_Comment()">Exit</ion-button>
+      <ion-button  color="medium" (click)="save_Comment()">Push</ion-button>
+    </div>
+  </ion-content>
+  

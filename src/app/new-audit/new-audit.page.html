@@ -1,0 +1,69 @@
+<ion-header>
+  <div style="background-color: black; align-content: center;"><table style="margin-left: 10px; margin-top: 5px; margin-bottom: 2px;"><tbody><tr><td><span style="margin-top:20px; margin-left: 5px; margin-top: 1px;"><img src="../../assets/tablez.png"  height="35" width="35" /></span></td><td>&nbsp;</td><td><span style="color: white; margin-top: 1px;">New Audit</span></td></tr></tbody></table> </div>
+</ion-header>
+
+   
+<ion-content>
+  <form id="NewAudit" [formGroup]="form_NewAudit">  
+
+  <ion-item>
+    <ion-label>Audit Name</ion-label>
+  
+    <ion-select ok-text="Okay" cancel-text="Nah" formControlName="Audit_Select">
+     
+      <ion-select-option  *ngFor="let element_a of AllAudits" value={{element_a.AUDIT_ID}}>{{element_a.AUDIT_NAME}}</ion-select-option>
+     
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Restaurant</ion-label>
+  
+    <ion-select ok-text="Okay" cancel-text="Nah"  formControlName="Audit_Store">
+      <!-- <ion-select-option value="0">Select Store</ion-select-option> -->
+      <ion-select-option *ngFor="let element_s of row_store"  value={{element_s.STR_CODE}}>{{element_s.STR_NAME}}</ion-select-option>
+     
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Manager on shift</ion-label>
+  
+    <ion-input style="background-color: #f4f5f8;"  formControlName="Audit_Manager"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Evaluator</ion-label>
+  
+    <ion-input *ngFor="let element_u of User_data" value={{element_u.EMP_NAME}} style="background-color: #f4f5f8;"  formControlName="Auditor_Name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Audit Date</ion-label>
+ 
+    <ion-datetime type="datetime-local" displayFormat="DD/MM/YYYY" max="2099-12-31" [(ngModel)]="myDate"  formControlName="Audit_date"></ion-datetime>
+  </ion-item>
+  
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <ion-grid>
+    <ion-row>
+     
+      <ion-col>
+        <div>
+          <ion-button  color="medium"  expand="full" (click)="Next_New_Audit(form_NewAudit)">Next</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button  color="medium"  (click)="Reload_page()" expand="full">Refresh</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button  color="medium" (click)="Exit_New_Audit()"  expand="full">EXIT</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+</form>  
+</ion-content>
+<ion-footer class="ion-no-border">
+  
+</ion-footer>

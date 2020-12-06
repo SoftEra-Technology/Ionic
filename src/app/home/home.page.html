@@ -1,0 +1,30 @@
+<ion-header>
+  <div style="background-color: black; align-content: center;"><table style="margin-left: 10px; margin-top: 5px; margin-bottom: 2px;"><tbody><tr><td><span style="margin-top:20px; margin-left: 5px; margin-top: 1px;"><img src="../../assets/tablez.png"  height="35" width="35" /></span></td><td>&nbsp;</td><td><span style="color: white; margin-top: 1px;">Audit</span></td></tr></tbody></table> </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background-image: url(../../assets/Sunset.jpg);"><br/><br/><br/>
+ <div style="text-align: center; margin-left:10px; margin-right: 10px;"><img src="../../assets/Logo.jpg"  height="230" width="280" /></div><br/>
+ 
+  
+
+  
+ <div style="margin-left:35px; margin-right: 35px;">
+   <form id="contactForm" [formGroup]="form_user">
+      <div style= "border: 1px solid black;">
+        <ion-input type="text"  formControlName="EMAIL" placeholder="Employee Id"></ion-input>
+      </div><br/>
+      <div style="border: 1px solid black;">
+        
+        <ion-input  type="Password" formControlName="USERPASSWORD" placeholder="Password"></ion-input>
+      </div>
+     <br/>
+
+        <div><ion-button  style="background-color: #3986b2;" (click)="sendPostRequest(form_user)">&nbsp;&nbsp;&nbsp;Sign In &nbsp;&nbsp;&nbsp;</ion-button></div>
+      
+        <!-- <div><ion-button  style="background-color: #3986b2;" (click)="checkconnection_serve()">&nbsp;&nbsp;&nbsp;check connection&nbsp;&nbsp;&nbsp;</ion-button></div> -->
+        
+
+  </form>
+</div>
+
+</ion-content>

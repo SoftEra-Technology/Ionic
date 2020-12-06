@@ -1,0 +1,56 @@
+<ion-header>
+  <div style="background-color: black; align-content: center;"><table style="margin-left: 10px; margin-top: 5px; margin-bottom: 2px;"><tbody><tr><td><span style="margin-top:20px; margin-left: 5px; margin-top: 1px;"><img src="../../assets/tablez.png"  height="35" width="35" /></span></td><td>&nbsp;</td><td><span style="color: white; margin-top: 1px;">Home</span></td></tr></tbody></table> </div>
+</ion-header>
+
+<ion-content>
+   <br/><br/><br/>
+  
+  <div style="background-color: #3986b2; text-align: center; margin-left: 10px; margin-right: 10px;"><ion-button expand="full"  (click)="Get_Sync()">Sync Definition</ion-button></div><br/>
+  <ion-spinner color="secondary" name="bubble" *ngIf="showSpinner"></ion-spinner>
+  <div style="background-color: #3986b2; text-align: center; margin-left: 10px; margin-right: 10px;"><ion-button expand="full"  (click)="GotoNewAudit()">New Audit</ion-button></div><br/>
+  <div style="background-color: #3986b2; text-align: center; margin-left: 10px; margin-right: 10px;"><ion-button expand="full"  (click)="GotoOpenAudit()">Open Audit(s)</ion-button></div><br/>
+  <div style="background-color: #3986b2; text-align: center; margin-left: 10px; margin-right: 10px;"> <ion-button expand="full" (click)="GotoCloseAudit()">Compleated Audit(s)</ion-button></div><br/>
+  <div style="background-color: #3986b2; text-align: center; margin-left: 10px; margin-right: 10px;"><ion-button expand="full"  (click)="logoff()">Log Off</ion-button></div><br/>
+  
+  <!-- <div class="main_div"></div>
+<table>
+  <tbody>
+    <tr>
+      <td width="48%"></td>
+      <td width="3%"></td>
+      <td width="49%"><div></div></td>
+    </tr>
+    <tr>
+      <td width="48%">&nbsp;</td>
+      <td width="3%"></td>
+      <td width="49%"></td>
+    </tr>
+    <tr>
+      <td width="48%"><div>  </div></td>
+      <td width="3%"></td>
+      <td width="49%"><div> </div></td>
+    </tr>
+    <tr>
+      <td width="48%">&nbsp;</td>
+      <td width="3%"></td>
+      <td width="49%"></td>
+    </tr>
+    <tr>
+      <td width="48"><div></div></td>
+      <td width="3%"></td>
+      <td width="49%"><div><ion-button expand="full" color="danger">Log Off</ion-button></div></td>
+    </tr>
+  </tbody>
+</table>
+<div class="div_button"></div>
+</div> -->
+
+
+</ion-content>
+<ion-footer class="ion-no-border">
+
+    <div *ngFor="let element of row_data" style="text-align: center;">User : {{element.EMP_NAME}}</div>
+    <div  style="text-align: center;">Powered by : SoftEra Audit v3.0</div>
+    <div  style="text-align: center;">Copyright &#xA9; 2020 SoftEra Technologies</div>
+  
+</ion-footer>
